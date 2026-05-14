@@ -1,11 +1,11 @@
-FROM pytorch/pytorch:2.7.1-cuda12.8-cudnn9-runtime
+FROM pytorch/pytorch:2.9.1-cuda12.8-cudnn9-runtime
 
 # Set environment variables for non-interactive installation.
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install MIST.
 RUN pip install --upgrade pip \
-    && pip install --upgrade --no-cache-dir mist-medical
+    && pip install --upgrade --no-cache-dir "mist-medical[train]"
 
 # Create app directory.
 RUN mkdir /app
